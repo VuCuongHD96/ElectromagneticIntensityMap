@@ -1,32 +1,82 @@
 // Google Maps initialization
 function initMap() {
-    // Default location (you can change these coordinates)
-    const defaultLocation = { lat: 10.762622, lng: 106.660172 }; // Ho Chi Minh City coordinates
+    // Default center location (Ho Chi Minh City)
+    const defaultLocation = { lat: 10.762622, lng: 106.660172 };
+
+    // Custom map styles to hide all places
+    const mapStyles = [
+        {
+            featureType: "poi",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "poi.park",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "poi.business",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "poi.school",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "poi.medical",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "poi.attraction",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "poi.government",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "transit",
+            elementType: "all",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "landscape",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "administrative",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "road",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+        },
+        {
+            featureType: "water",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }]
+        }
+    ];
 
     // Create the map
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 15,
+        zoom: 12,
         center: defaultLocation,
-        mapTypeControl: true,
-        streetViewControl: true,
-        fullscreenControl: true,
-    });
-
-    // Add a marker
-    const marker = new google.maps.Marker({
-        position: defaultLocation,
-        map: map,
-        title: "Our Location",
-        animation: google.maps.Animation.DROP
-    });
-
-    // Add info window
-    const infoWindow = new google.maps.InfoWindow({
-        content: "<h5>Our Location</h5><p>Visit us here!</p>"
-    });
-
-    marker.addListener("click", () => {
-        infoWindow.open(map, marker);
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: false,
+        zoomControl: true,
+        disableDefaultUI: true,
+        styles: mapStyles
     });
 }
 
