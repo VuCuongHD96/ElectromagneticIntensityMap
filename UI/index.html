@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenStreetMap Example</title>
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
@@ -21,7 +24,7 @@
 <body>
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Nhập tên thành phố...">
-        <button id="searchButton">Tìm kiếm</button>
+        <button id="searchButton" class="search-icon-btn"><i class="fas fa-search"></i></button>
         <select id="mapStyle" class="map-style-select">
             <option value="osm">Mặc định</option>
             <option value="satellite">Vệ tinh</option>
