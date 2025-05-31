@@ -1,0 +1,12 @@
+{
+  "name": "electromagnetic-intensity-map",
+  "version": "1.0.0",
+  "description": "Electromagnetic Intensity Map Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+} 
