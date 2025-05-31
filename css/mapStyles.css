@@ -42,4 +42,22 @@ body {
 
 #searchButton:hover {
     background-color: #45a049;
+}
+
+.map-style-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.map-style-select:hover {
+    border-color: #999;
+}
+
+.map-style-select:focus {
+    outline: none;
+    border-color: #4CAF50;
 } 

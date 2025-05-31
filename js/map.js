@@ -1,15 +1,33 @@
 // Initialize the map
 const map = L.map('map').setView([10.762622, 106.660172], 13);
 
-// Add OpenStreetMap tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+// Define map tile layers
+const mapLayers = {
+    osm: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }),
+    satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 19,
+        attribution: '© Esri'
+    }),
+    terrain: L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        maxZoom: 17,
+        attribution: '© OpenTopoMap'
+    }),
+    dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19,
+        attribution: '© CartoDB'
+    })
+};
+
+// Add default layer
+mapLayers.osm.addTo(map);
 
 // Search functionality
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
+const mapStyleSelect = document.getElementById('mapStyle');
 
 async function searchCity() {
     const cityName = searchInput.value;
@@ -39,4 +57,17 @@ searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         searchCity();
     }
+});
+
+// Handle map style changes
+mapStyleSelect.addEventListener('change', (e) => {
+    const selectedStyle = e.target.value;
+    
+    // Remove all existing layers
+    Object.values(mapLayers).forEach(layer => {
+        map.removeLayer(layer);
+    });
+    
+    // Add the selected layer
+    mapLayers[selectedStyle].addTo(map);
 }); 
