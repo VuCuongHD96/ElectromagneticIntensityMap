@@ -7,6 +7,21 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "googleapis": "^149.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VuCuongHD96/ElectromagneticIntensityMap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VuCuongHD96/ElectromagneticIntensityMap/issues"
+  },
+  "homepage": "https://github.com/VuCuongHD96/ElectromagneticIntensityMap#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
-} 
+}
