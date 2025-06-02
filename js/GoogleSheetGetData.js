@@ -17,6 +17,6 @@ app.get("/", async (req, res) => {
         range: "Sheet1",
     });
 
-    res.send(getRows.data);
+    res.send(getRows.data.values);
 }) ;
 app.listen(3000, (req, res) => console.log("running on 3000"));
