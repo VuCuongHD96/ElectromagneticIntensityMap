@@ -27,7 +27,7 @@ mapLayers.osm.addTo(map);
 // Function to fetch data from API
 async function fetchData() {
     try {
-        const response = await fetch('http://localhost:3000/api/data');
+        const response = await fetch('/api/data');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -58,16 +58,37 @@ async function displayLocations() {
                 // Add popup with information
                 const popupContent = `
                     <div style="font-size: 14px;">
-                        <h3 style="margin: 0 0 10px 0; color: #2c3e50;">${row[1] || 'Không có tên trạm'}</h3>
                         <div style="margin-bottom: 5px;">
                             <strong>Mã SITE/LAC:</strong> ${row[0] || 'N/A'}<br>
+                            <strong>Tên trạm gốc:</strong> ${row[1] || 'N/A'}<br>
                             <strong>Mã cell:</strong> ${row[2] || 'N/A'}<br>
                             <strong>Địa chỉ:</strong> ${row[3] || 'N/A'}<br>
-                            <strong>Vị trí:</strong> ${row[4]}, ${row[6]}, ${row[8]}<br>
-                            <strong>Tọa độ:</strong> ${longitude}°, ${latitude}°<br>
-                            <strong>Độ cao ăng-ten:</strong> ${row[12] || 'N/A'} m<br>
-                            <strong>Công nghệ:</strong> ${row[25] || 'N/A'}<br>
-                            <strong>Nhà cung cấp:</strong> ${row[28] || 'N/A'}
+                            <strong>Xã (phường) đặt nhà trạm:</strong> ${row[4] || 'N/A'}<br>
+                            <strong>Mã phường (xã) đặt trạm:</strong> ${row[5] || 'N/A'}<br>
+                            <strong>Huyện (quận) đặt nhà trạm:</strong> ${row[6] || 'N/A'}<br>
+                            <strong>Mã huyện (quận) đặt trạm:</strong> ${row[7] || 'N/A'}<br>
+                            <strong>Tỉnh (thành phố) đặt nhà trạm:</strong> ${row[8] || 'N/A'}<br>
+                            <strong>Mã tỉnh/ thành phố (đặt trạm):</strong> ${row[9] || 'N/A'}<br>
+                            <strong>Kinh độ:</strong> ${row[10] || 'N/A'}<br>
+                            <strong>Vĩ độ:</strong> ${row[11] || 'N/A'}<br>
+                            <strong>Độ cao ăng-ten (m):</strong> ${row[12] || 'N/A'}<br>
+                            <strong>Hãng sản xuất ăng-ten:</strong> ${row[13] || 'N/A'}<br>
+                            <strong>Chủng loại ăng-ten:</strong> ${row[14] || 'N/A'}<br>
+                            <strong>Kiểu ăng-ten:</strong> ${row[15] || 'N/A'}<br>
+                            <strong>Phân cực ăng-ten:</strong> ${row[16] || 'N/A'}<br>
+                            <strong>Tăng ích của ăng-ten (dBi):</strong> ${row[17] || 'N/A'}<br>
+                            <strong>Góc phương vị của ăng-ten (deg):</strong> ${row[18] || 'N/A'}<br>
+                            <strong>Góc cụp của ăng-ten (deg):</strong> ${row[19] || 'N/A'}<br>
+                            <strong>Độ rộng búp sóng chính của ăng-ten (deg):</strong> ${row[20] || 'N/A'}<br>
+                            <strong>Hãng sản xuất máy phát VTĐ:</strong> ${row[21] || 'N/A'}<br>
+                            <strong>Chủng loại thiết bị máy phát VTĐ:</strong> ${row[22] || 'N/A'}<br>
+                            <strong>Công suất phát (dBm):</strong> ${row[23] || 'N/A'}<br>
+                            <strong>Tần số phát (MHz):</strong> ${row[24] || 'N/A'}<br>
+                            <strong>Băng thông (MHz):</strong> ${row[25] || 'N/A'}<br>
+                            <strong>Công nghệ vô tuyến:</strong> ${row[26] || 'N/A'}<br>
+                            <strong>Ghi chú:</strong> ${row[27] || 'N/A'}<br>
+                            <strong>Thời gian tiếp nhận:</strong> ${row[28] || 'N/A'}<br>
+                            <strong>Nhà cung cấp:</strong> ${row[29] || 'N/A'}<br>
                         </div>
                     </div>
                 `;
