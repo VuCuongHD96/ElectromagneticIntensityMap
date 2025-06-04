@@ -58,41 +58,86 @@ async function displayLocations() {
                 // Add popup with information
                 const popupContent = `
                     <div style="font-size: 14px;">
-                        <div style="margin-bottom: 5px;">
-                            <strong>Mã SITE/LAC:</strong> ${row[0] || 'N/A'}<br>
-                            <strong>Tên trạm gốc:</strong> ${row[1] || 'N/A'}<br>
-                            <strong>Mã cell:</strong> ${row[2] || 'N/A'}<br>
-                            <strong>Địa chỉ:</strong> ${row[3] || 'N/A'}<br>
-                            <strong>Xã (phường) đặt nhà trạm:</strong> ${row[4] || 'N/A'}<br>
-                            <strong>Mã phường (xã) đặt trạm:</strong> ${row[5] || 'N/A'}<br>
-                            <strong>Huyện (quận) đặt nhà trạm:</strong> ${row[6] || 'N/A'}<br>
-                            <strong>Mã huyện (quận) đặt trạm:</strong> ${row[7] || 'N/A'}<br>
-                            <strong>Tỉnh (thành phố) đặt nhà trạm:</strong> ${row[8] || 'N/A'}<br>
-                            <strong>Mã tỉnh/ thành phố (đặt trạm):</strong> ${row[9] || 'N/A'}<br>
-                            <strong>Kinh độ:</strong> ${row[10] || 'N/A'}<br>
-                            <strong>Vĩ độ:</strong> ${row[11] || 'N/A'}<br>
-                            <strong>Độ cao ăng-ten (m):</strong> ${row[12] || 'N/A'}<br>
-                            <strong>Hãng sản xuất ăng-ten:</strong> ${row[13] || 'N/A'}<br>
-                            <strong>Chủng loại ăng-ten:</strong> ${row[14] || 'N/A'}<br>
-                            <strong>Kiểu ăng-ten:</strong> ${row[15] || 'N/A'}<br>
-                            <strong>Phân cực ăng-ten:</strong> ${row[16] || 'N/A'}<br>
-                            <strong>Tăng ích của ăng-ten (dBi):</strong> ${row[17] || 'N/A'}<br>
-                            <strong>Góc phương vị của ăng-ten (deg):</strong> ${row[18] || 'N/A'}<br>
-                            <strong>Góc cụp của ăng-ten (deg):</strong> ${row[19] || 'N/A'}<br>
-                            <strong>Độ rộng búp sóng chính của ăng-ten (deg):</strong> ${row[20] || 'N/A'}<br>
-                            <strong>Hãng sản xuất máy phát VTĐ:</strong> ${row[21] || 'N/A'}<br>
-                            <strong>Chủng loại thiết bị máy phát VTĐ:</strong> ${row[22] || 'N/A'}<br>
-                            <strong>Công suất phát (dBm):</strong> ${row[23] || 'N/A'}<br>
-                            <strong>Tần số phát (MHz):</strong> ${row[24] || 'N/A'}<br>
-                            <strong>Băng thông (MHz):</strong> ${row[25] || 'N/A'}<br>
-                            <strong>Công nghệ vô tuyến:</strong> ${row[26] || 'N/A'}<br>
-                            <strong>Ghi chú:</strong> ${row[27] || 'N/A'}<br>
-                            <strong>Thời gian tiếp nhận:</strong> ${row[28] || 'N/A'}<br>
-                            <strong>Nhà cung cấp:</strong> ${row[29] || 'N/A'}<br>
+                        <div>
+                           <div style="margin-bottom: 10px; font-size: 20px; background-color: #0356b2; color: white; padding: 5px; text-align: center;">
+                            <strong>Thông tin chung</strong><br>
+                        </div>
+                            <div style="margin-left: 10px;">
+                                <strong>Thời gian tiếp nhận:</strong> ${row[28] || 'N/A'}<br>
+                                <strong>Nhà cung cấp:</strong> ${row[29] || 'N/A'}<br>
+                                <strong>Địa chỉ:</strong> ${row[3] || 'N/A'}<br>
+                                <strong>Xã (phường) đặt nhà trạm:</strong> ${row[4] || 'N/A'}<br>
+                                <strong>Huyện (quận) đặt nhà trạm:</strong> ${row[6] || 'N/A'}<br>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="background-color: #0356b2; font-size: 18px; color: white; padding: 5px; text-align: center;">
+                                <strong>Thông tin chi tiết</strong><br>
+                            </div>
+                            <div style="margin-left: 10px; padding-bottom: 10px; overflow-x: auto;">
+                                <table style="border-collapse: collapse;">
+                                    <tr>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Mã SITE/LAC</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Tên trạm gốc</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Mã cell</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Mã phường (xã) đặt trạm</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Mã huyện (quận) đặt trạm</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Tỉnh (thành phố) đặt nhà trạm</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Mã tỉnh/ thành phố (đặt trạm)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Kinh độ</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Vĩ độ</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Độ cao ăng-ten (m)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Hãng sản xuất ăng-ten</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Chủng loại ăng-ten</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Kiểu ăng-ten</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Phân cực ăng-ten</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Tăng ích của ăng-ten (dBi)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Góc phương vị của ăng-ten (deg)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Góc cụp của ăng-ten (deg)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Độ rộng búp sóng chính của ăng-ten (deg)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Hãng sản xuất máy phát VTĐ</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Chủng loại thiết bị máy phát VTĐ</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Công suất phát (dBm)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Tần số phát (MHz)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Băng thông (MHz)</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Công nghệ vô tuyến</strong></td>
+                                        <td style="padding: 4px; border: 1px solid #ddd; min-width: 150px;"><strong>Ghi chú</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[0] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[1] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[2] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[5] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[7] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[8] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[9] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[10] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[11] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[12] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[13] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[14] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[15] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[16] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[17] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[18] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[19] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[20] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[21] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[22] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[23] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[24] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[25] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[26] || 'N/A'}</td>
+                                        <td style="padding: 4px; border: 1px solid #ddd;">${row[27] || 'N/A'}</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 `;
-                marker.bindPopup(popupContent);
+                marker.bindPopup(popupContent, {
+                    minWidth: 600, 
+                  });
             }
         });
 
