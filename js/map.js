@@ -59,8 +59,13 @@ async function displayLocations() {
                 const popupContent = `
                     <div style="font-size: 14px;">
                         <div>
-                           <div style="margin-bottom: 10px; font-size: 20px; background-color: #0356b2; color: white; padding: 5px; text-align: center;">
-                            <strong>Thông tin chung</strong><br>
+                           <div style="margin-bottom: 10px; font-size: 20px; background-color: #0356b2; color: white; padding: 5px; text-align: center; display: flex; justify-content: space-between; align-items: center;">
+                            <div style="flex-grow: 1;"><strong>Thông tin chung</strong></div>
+                            <div style="display: flex; gap: 10px;">
+                                <button onclick="downloadExcel(this.getAttribute('data-row'))" data-row='${JSON.stringify(row)}' style="background: none; border: none; color: white; cursor: pointer; padding: 5px;">
+                                      <i class="fas fa-print"></i>
+                                </button>
+                            </div>
                         </div>
                             <div style="margin-left: 10px;">
                                 <strong>Thời gian tiếp nhận:</strong> ${row[28] || 'N/A'}<br>
@@ -70,7 +75,7 @@ async function displayLocations() {
                                 <strong>Huyện (quận) đặt nhà trạm:</strong> ${row[6] || 'N/A'}<br>
                             </div>
                         </div>
-                        <div>
+                        <div style = "padding-top: 15px;">
                             <div style="background-color: #0356b2; font-size: 18px; color: white; padding: 5px; text-align: center;">
                                 <strong>Thông tin chi tiết</strong><br>
                             </div>

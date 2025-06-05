@@ -34,7 +34,22 @@
     </div>
     <div id="map"></div>
 
+    <!-- SheetJS -->
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+    <script>
+        // Verify SheetJS is loaded
+        window.addEventListener('load', function() {
+            if (typeof XLSX === 'undefined') {
+                console.error('SheetJS library failed to load');
+                alert('Không thể tải thư viện SheetJS. Vui lòng kiểm tra kết nối internet và tải lại trang.');
+            } else {
+                console.log('SheetJS library loaded successfully');
+            }
+        });
+    </script>
+    
     <!-- Custom JavaScript -->
+    <script src="../js/DownloadExcel.js"></script>
     <script src="../js/map.js"></script>
 </body>
 </html> 
