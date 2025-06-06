@@ -1,2 +1,4 @@
 flask==3.0.2
-pyngrok==7.1.5 
+pyngrok==7.1.5
+google-auth==2.27.0
+google-api-python-client==2.118.0 
