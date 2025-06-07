@@ -32,8 +32,8 @@ app.get('/api/data', async (req, res) => {
     }
 });
 
-// Serve static files from the UI directory
-app.use(express.static(path.join(__dirname, 'UI')));
+// Serve static files from the root directory
+app.use(express.static(__dirname));
 
 // Serve static files from the css directory
 app.use('/css', express.static(path.join(__dirname, 'css')));
