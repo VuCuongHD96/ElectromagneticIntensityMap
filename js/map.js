@@ -191,26 +191,34 @@ async function searchCity() {
     }
 }
 
-// Add event listeners
-searchButton.addEventListener('click', searchCity);
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        searchCity();
-    }
-});
+// Load locations and initialize UI elements when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize UI elements
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const mapStyleSelect = document.getElementById('mapStyle');
 
-// Handle map style changes
-mapStyleSelect.addEventListener('change', (e) => {
-    const selectedStyle = e.target.value;
-    
-    // Remove all existing layers
-    Object.values(mapLayers).forEach(layer => {
-        map.removeLayer(layer);
+    // Add event listeners
+    searchButton.addEventListener('click', searchCity);
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            searchCity();
+        }
     });
-    
-    // Add the selected layer
-    mapLayers[selectedStyle].addTo(map);
-});
 
-// Load locations when the page loads
-document.addEventListener('DOMContentLoaded', displayLocations); 
+    // Handle map style changes
+    mapStyleSelect.addEventListener('change', (e) => {
+        const selectedStyle = e.target.value;
+        
+        // Remove all existing layers
+        Object.values(mapLayers).forEach(layer => {
+            map.removeLayer(layer);
+        });
+        
+        // Add the selected layer
+        mapLayers[selectedStyle].addTo(map);
+    });
+
+    // Load locations
+    displayLocations();
+}); 

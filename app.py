@@ -28,7 +28,7 @@ def get_google_sheets_data():
 
 @app.route('/')
 def home():
-    return send_from_directory('UI', 'index.html')
+    return send_from_directory('./', 'index.html')
 
 @app.route('/api/data')
 def get_data():
