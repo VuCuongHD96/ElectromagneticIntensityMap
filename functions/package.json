@@ -1,0 +1,8 @@
+{
+  "name": "electromagnetic-map-functions",
+  "version": "1.0.0",
+  "description": "Netlify Functions for Electromagnetic Map",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+} 

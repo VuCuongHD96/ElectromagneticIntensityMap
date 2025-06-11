@@ -4,7 +4,9 @@
   "description": "Electromagnetic Intensity Map Application",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "mkdir -p dist && cp -r index.html css js UI dist/ && mkdir -p functions/data && cp -r data/* functions/data/",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "@google-cloud/local-auth": "^3.0.1",
